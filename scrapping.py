@@ -4,7 +4,7 @@ import pandas as pd
 import itertools
 
 # our search term, using syntax for Twitter's Advanced Search
-search = '#suicide since:2015-01-01 until:2021-09-26 lang:en' # -filter:nativeretweets'
+search = '#suicide since:2015-01-01 until:2022-09-26 lang:en' # -filter:nativeretweets'
 
 # the scraped tweets, this is a generator
 scraped_tweets = sntwitter.TwitterSearchScraper(search).get_items()
