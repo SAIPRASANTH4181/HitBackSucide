@@ -26,22 +26,21 @@ jobs:
           command: pwd
   
   build-and-test-python-test-cases:
-     
     docker:
-       - image: cimg/node:14.20.0
-     steps:
-       - checkout
-       - run:
-           name: RUN PREPROCESSING
-           command: preprocessing.py
+      - image: cimg/node:14.20.0
+    steps:
+      - checkout
+      - run:
+          name: RUN PREPROCESSING
+          command: preprocessing.py
       
       - run:
-           name: RUN ASPECT_BASED_ANALYSIS
-           command: aspect_based_analysis.py
+          name: RUN ASPECT_BASED_ANALYSIS
+          command: aspect_based_analysis.py
       
       - run:
-           name: RUN REPORT
-           command: report_word_cloud.py
+          name: RUN REPORT
+          command: report_word_cloud.py
 
 workflows:
   sample:
