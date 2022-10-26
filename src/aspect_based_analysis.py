@@ -24,7 +24,8 @@ def aspect_analyze(refined_data):
 def aspect_based_analysis(toy_rev):
     # toy_rev ---> The final_dataset on which we perform sentiment analysis
     nlp = en_core_web_sm.load()
-
+    sid = SentimentIntensityAnalyzer()
+    
     # List of emotions that are used to analyze the sentiments
     competitors = ['Depression','Stress','Relationship','Emotions','Finance','Society']
     aspect_terms = []
