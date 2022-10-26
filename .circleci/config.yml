@@ -27,7 +27,7 @@ jobs:
   
   build-and-test-python-test-cases:
      
-    docker:
+     docker:
        - image: cimg/node:14.20.0
      steps:
        - checkout
