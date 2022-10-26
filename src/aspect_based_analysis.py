@@ -14,13 +14,9 @@ def aspect_analyze(refined_data):
     : refined_data = Cleaned data
     : returns dataframe with the sentiment scores and aspects words 
     '''
-    # This function
-    
     nlp = en_core_web_sm.load()
-
     # Calling the aspect analyzer function
     xy=aspect_based_analysis(refined_data)
-
     return xy
 
 
@@ -158,4 +154,11 @@ def aspect_based_analysis(toy_rev):
     toy_rev['compound_vader_score'] = cs
 
     return toy_rev
-                          
+
+def demo_analysis(df):
+    # Demo data
+    if df == '':
+        raise Exception('The data is empty.')
+    else:
+        print('Analyzed Successfully.')
+    
