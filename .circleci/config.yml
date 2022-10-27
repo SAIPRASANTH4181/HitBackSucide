@@ -27,9 +27,11 @@ jobs:
   
   build-and-test-python-test-cases:
     docker:
-      - image: cimg/node:14.20.0
+      - image: cimg/python:3.10.4
     steps:
       - checkout
+      - python/install-packages:
+          pkg-manager: pip
       - run:
           name: RUN PREPROCESSING
           command: preprocessing.py
@@ -41,9 +43,22 @@ jobs:
       - run:
            name: RUN REPORT
            command: report_word_cloud.py
+        
+  build-and-test-angular:
+    working_directory: ~/ng-project
+    docker:
+      - image: cimg/node:16.13.1
+    steps:
+      - checkout
+      - run: 
+          command: cd angular-HitBack &&npm install
+      - run: 
+          command: cd angular-HitBack && npm run test
+        
 
 workflows:
   sample:
     jobs:
       - build-and-test-python-requirements
       - build-and-test-python-test-cases
+      - build-and-test-angular
