@@ -1,0 +1,72 @@
+version: 2.1
+orbs:
+  python: circleci/python@2.0.3
+  browser-tools: circleci/browser-tools@1.2.3
+jobs:
+  build-and-test-python-requirements:
+    docker:
+      - image: cimg/python:3.10.4
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: RUN py_test
+          command: pytest
+      - run:
+          name: RUN SNSCRAPE
+          command: snscrape
+      - run:
+          name: RUN NPACY
+          command: spacy
+      - run:
+          name: RUN VADER
+          command: vaderSentiment
+      - run:
+          name: RUN CURRENT WORKING DIR
+          command: pwd
+  
+  build-and-test-python-test-cases:
+    docker:
+      - image: cimg/python:3.10.4
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: RUN PREPROCESSING
+          command: preprocessing.py
+      
+      - run:
+           name: RUN ASPECT_BASED_ANALYSIS
+           command: aspect_based_analysis.py
+      
+      - run:
+           name: RUN REPORT
+           command: report_word_cloud.py
+        
+  build-and-test-angular:
+    working_directory: ~/ng-project
+    docker:
+      - image: cimg/node:16.13.1-browsers
+    steps:
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run:
+          command: |
+            google-chrome --version
+            chromedriver --version
+          name: Check install
+      - checkout
+      - run: 
+          command: cd angular-HitBack &&npm install
+      - run: 
+          command: cd angular-HitBack && npm run test
+        
+
+workflows:
+  sample:
+    jobs:
+      - build-and-test-python-requirements
+      - build-and-test-python-test-cases
+      - build-and-test-angular

@@ -1,0 +1,4 @@
+snscrape
+pytest
+spacy
+vaderSentiment
