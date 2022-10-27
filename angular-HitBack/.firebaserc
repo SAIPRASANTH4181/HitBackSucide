@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-HitBack": {
+      "hosting": {
+        "angular-HitBack": [
+          "angular-HitBack"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-HitBack"
+  }
+}
