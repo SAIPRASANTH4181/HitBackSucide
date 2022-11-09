@@ -163,4 +163,5 @@ def demo_analysis(df):
         raise Exception('The data is empty.')
     else:
         print('Analyzed Successfully.')
-    
+
+demo_analysis('')

@@ -35,15 +35,15 @@ jobs:
           pkg-manager: pip
       - run:
           name: RUN PREPROCESSING
-          command: preprocessing.py
+          command: python preprocessing.py
       
       - run:
            name: RUN ASPECT_BASED_ANALYSIS
-           command: aspect_based_analysis.py
+           command: python aspect_based_analysis.py
       
       - run:
            name: RUN REPORT
-           command: report_word_cloud.py
+           command: python report_word_cloud.py
         
   build-and-test-angular:
     working_directory: ~/ng-project

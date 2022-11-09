@@ -5,3 +5,4 @@ def demo_data_cleaning(df):
     else:
         print('Data Cleaned Successfully.')
     
+demo_data_cleaning('Accepted the clean data')
