@@ -27,7 +27,7 @@ def aspect_based_analysis(toy_rev):
     sid = SentimentIntensityAnalyzer()
     
     # List of emotions that are used to analyze the sentiments
-    competitors = ['Depression','Stress','Relationship','Emotions','Finance','Society']
+    competitors = ['Depression','Stress','Relationship','Emotions','Finance','Society','Anxiety','Panic','Nervous','Annoying']
     aspect_terms = []
     comp_terms = []
     easpect_terms = []
@@ -163,4 +163,5 @@ def demo_analysis(df):
         raise Exception('The data is empty.')
     else:
         print('Analyzed Successfully.')
-    
+
+demo_analysis('')

@@ -27,3 +27,5 @@ def word_cloud(df):
 
 def demo_word_cloud():
     print ('Presenting you the word cloud.')
+
+demo_word_cloud()
