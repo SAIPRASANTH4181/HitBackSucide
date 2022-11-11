@@ -23,6 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
 // import { ProfileComponent } from './components/profile/profile.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,10 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     provideStorage(() => getStorage()),
     HotToastModule.forRoot(),
     MatMenuModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-center'
+    }),
   ],
   providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase}],
   bootstrap: [AppComponent],

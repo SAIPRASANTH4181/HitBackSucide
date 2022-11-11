@@ -25,6 +25,7 @@
     "@ngneat/overview": "^2.0.2",
     "@ngneat/until-destroy": "^9.0.0",
     "firebase": "^9.4.0",
+    "ngx-toastr": "^15.2.1",
     "rxfire": "^6.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
