@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
       )
       .subscribe(() => {
         this.router.navigate(['/home']);
+        window.location.href = "http://localhost:4200/home"
         this.newItemEvent.emit(true);
       });
   }

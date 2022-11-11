@@ -13,7 +13,8 @@
     </button> -->
   <!-- </ng-container> -->
   <ng-container >
-    <button mat-menu-item (click)="logout()">
+    <!-- <p  *ngIf="isHome == true" mat-menu-item style="right: -537px;color: white;">Hi, Varsha</p> -->
+    <button *ngIf="isHome == true" style="color: white;" mat-menu-item (click)="logout()">
       <mat-icon>logout</mat-icon>
       Logout
     </button>
@@ -25,12 +26,12 @@
     </button>
   </ng-template>
   
-  <ng-template #logOutButton>
+  <!-- <ng-template #logOutButton>
     <button mat-menu-item (click)="logout()">
       <mat-icon>logout</mat-icon>
       Logout
     </button>
-  </ng-template>
+  </ng-template> -->
 
 </mat-toolbar>
 

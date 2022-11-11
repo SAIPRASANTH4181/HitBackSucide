@@ -12,14 +12,25 @@ export class AppComponent {
   @Input() status = '';
   // user$ = this.usersService.currentUserProfile$;
   title: any='angular-HitBack';
+  isHome:Boolean = true
 
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
-
+  ) {
+    
+    if(window.location.pathname == "/home") {
+      console.log("home")
+      this.isHome = true
+    }
+    else this.isHome = false
+  }
+ngOnInit() {
+  // window.location.reload()
+}
   logout() {
     this.router.navigate(['/']);
+    this.isHome = false
     // this.authService.logout().subscribe(() => {
     //   // console.log(this.usersService) 
     //   this.router.navigate(['/']);
