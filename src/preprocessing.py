@@ -64,7 +64,6 @@ class preprocessing:
         
         return re.sub(emoj, '', data)
 
-    # Removing punctuations
     def remove_punct(self,headline_text):
         '''
         headline_text   : the data after emojis removal
@@ -74,7 +73,6 @@ class preprocessing:
         
         return headline_text.translate(table)
 
-    # Function calling all the preprocessing methods
     def text_preprocessing(self,raw_data):
         '''
         raw_data        : the data after pucntuation removal
