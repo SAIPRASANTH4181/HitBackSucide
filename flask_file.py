@@ -23,7 +23,7 @@ def helloWorld():
         f = request.files['file']
         # filename = secure_filename(f.filename)
         f.save(os.path.join(app.config["CLIENT_CSV"], f.filename))
-        import Emotion_Analysis
+        import aspect_analysis
         return 's2'
      if request.method == 'GET':
         
