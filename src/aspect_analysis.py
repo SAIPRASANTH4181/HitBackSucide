@@ -23,11 +23,10 @@ class aspect_analysis:
         report_word_cloud_obj=rwc.report_word_cloud(analysed_data)
         final_report=report_word_cloud_obj.word_cloud()
         #final_report=report_word_cloud.word_cloud(analysed_data)
-
+        print(final_report)
         return final_report
 
 
 def main(DataFrame):
     aspect_analysis_obj = aspect_analysis(DataFrame)
-    aspect_analysis_obj.end_end_analysis()
-    print('pppppppppppppppppp')
+    return aspect_analysis_obj.end_end_analysis()

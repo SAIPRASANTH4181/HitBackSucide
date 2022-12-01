@@ -29,11 +29,15 @@ def helloWorld():
         print(df.head())
 
         import src.aspect_analysis as aa
-        aa.main(df)
-        return 's2'
-     if request.method == 'GET':
+        arr=[]
+        arr=aa.main(df)
+        print('iuytrewertyuioiuytre')
+        print(arr)
+        print('pppppppppppppppppp')
+        return arr
+   #   if request.method == 'GET':
         
-        return 'File-Uploaded'
+   #      return 'File-Uploaded'
    
 
 # @app.route('/update' , methods = ['GET' , 'POST'])

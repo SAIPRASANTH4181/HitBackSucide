@@ -68,4 +68,4 @@ class report_word_cloud:
         plt.ylabel('Words')
         plt.bar(words, counts, color=colors)
 
-        return [words,counts]
+        return [words[1:],counts[1:]]

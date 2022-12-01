@@ -10,14 +10,13 @@ export class FileUploadService {
   
   constructor(private http: HttpClient) { }
 
-  uploadFile(file:File){
- 
+  upload(file:File){
+    console.log(file)
     var form = new FormData();
     form.append("file",file,file.name)
     let headers = new HttpHeaders({
       'file': file.name
        });
   
-    return this.http.post(`${this.uri}`,form,{
-      headers,reportProgress : true,observe: 'events',responseType: 'text'})
+    return this.http.post(`${this.uri}`,form,{headers})
   }}
