@@ -19,5 +19,5 @@ export class FileUploadService {
        });
   
     return this.http.post(`${this.uri}`,form,{
-      headers,reportProgress : true,observe: 'events'})
+      headers,reportProgress : true,observe: 'events',responseType: 'text'})
   }}

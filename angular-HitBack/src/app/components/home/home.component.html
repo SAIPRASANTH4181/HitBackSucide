@@ -4,7 +4,7 @@
         <input type="file" (change)="ReadExcel($event)">
     </div>
 </ng-container> -->
-<div class="card" style="width: 31rem;border-width: 10px;border-color: aqua; margin-bottom: 4%;">
+<div class="card" style="width: 31rem;border-width: 10px; margin-bottom: 4%;">
     <div class="card-body">
         <div class="progress form-group" *ngIf="progress > 0">
             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
@@ -17,8 +17,10 @@
     </div>
 </div>
 
-<img  class="thumbnail-image" src="http://127.0.0.1:5000/get_image" width="800" height="600"
-      onerror="this.src='assets/images/image-placeholder.png';"  alt="..." />
 
+<div>
+    <img  class="thumbnail-image" src="http://127.0.0.1:5000/get_image" width="800" height="600"
+      onerror="this.src='assets/images/image-placeholder.png';"  alt="..." />
+</div>
 
      
