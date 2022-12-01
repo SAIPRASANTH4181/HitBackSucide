@@ -151,6 +151,7 @@ class aspect_based_analysis:
         
         ## Creating a compound vader score
         cs = []
+        sid = SentimentIntensityAnalyzer()
         for row in range(len(toy_rev)):
             cs.append(sid.polarity_scores(toy_rev['content'].iloc[row])['compound'])
         toy_rev['compound_vader_score'] = cs
@@ -158,13 +159,15 @@ class aspect_based_analysis:
         return toy_rev
                           
 
-    def aspect_analyze(self,cleaned_data):
+    def aspect_analyze(self):
         '''
         cleaned_data    : data which is result of preprocessing 
         returns         : daframe with the sentiment scores and aspects words 
         '''
+        cleaned_data=self._cleaned_data
         nlp = en_core_web_sm.load()
         # Calling the aspect analyzer function
         xy=self.aspect_based_analysis(cleaned_data)
+        print('1234567890987654345o876543')
         return xy
             

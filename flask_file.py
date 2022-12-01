@@ -23,22 +23,32 @@ def helloWorld():
         f = request.files['file']
         # filename = secure_filename(f.filename)
         f.save(os.path.join(app.config["CLIENT_CSV"], f.filename))
-        import aspect_analysis
-        return 's2'
-     if request.method == 'GET':
+        print(f.filename)
         
-        return 'File-Uploaded'
+        df = pd.read_csv(f.filename)
+        print(df.head())
+
+        import src.aspect_analysis as aa
+        arr=[]
+        arr=aa.main(df)
+        print('iuytrewertyuioiuytre')
+        print(arr)
+        print('pppppppppppppppppp')
+        return arr
+   #   if request.method == 'GET':
+        
+   #      return 'File-Uploaded'
    
 
-@app.route('/update' , methods = ['GET' , 'POST'])
-class FileUploader():
- def upload_file():
-       if request.method == 'POST':
-        f = request.files['file']
-        # filename = secure_filename(f.filename)
-        f.save(os.path.join(app.config["CLIENT_CSV"], f.filename))
-        return 'File Uploaded'
-print('dddddddddddddddd')    
+# @app.route('/update' , methods = ['GET' , 'POST'])
+# class FileUploader():
+#  def upload_file():
+#        if request.method == 'POST':
+#         f = request.files['file']
+#         # filename = secure_filename(f.filename)
+#         f.save(os.path.join(app.config["CLIENT_CSV"], f.filename))
+#         return 'File Uploaded'
+# print('dddddddddddddddd')    
 app.run(debug=True)
 
 
