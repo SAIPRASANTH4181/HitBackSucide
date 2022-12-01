@@ -1,0 +1,47 @@
+version: 2.1
+orbs:
+  python: circleci/python@2.0.3
+
+
+jobs:
+  build_and_test: # this can be any name you choose
+    executor: python/default # use the default executor defined within the orb
+    steps:
+      - checkout
+      # - run: 
+      #   command: pip install -r requirements.txt
+
+      - run:
+            name: Install Python deps in a venv
+            command: |
+              python3 -m venv venv
+              . venv/bin/activate
+              pip install -r requirements.txt
+
+      - run:
+          command: |
+            . venv/bin/activate
+            python src/aspect_analysis.py test
+
+    # steps:
+    #   - checkout # checkout source code
+    #   - python/install-packages:
+    #       pkg-manager: pip
+    #   - run:
+    #       name: Run tests
+    #       command: python -m pytest
+    #   - persist_to_workspace:
+    #       root: ~/src
+    #       paths:
+    #         - .
+
+workflows:
+  build_test_deploy:
+    jobs:
+      - build_and_test
+      # - deploy:
+      #     requires:
+      #       - build_and_test # only deploy if the build_and_test job has completed
+          filters:
+            branches:
+              only: circle_ci_bug_fix # only deploy when on main
