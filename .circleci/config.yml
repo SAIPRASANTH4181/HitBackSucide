@@ -78,6 +78,8 @@ orbs:
 
 jobs:
   build_and_test: # this can be any name you choose
+    docker:
+      - image: cimg/python:3.10.4
     executor: python/default # use the default executor defined within the orb
     steps:
       - checkout
