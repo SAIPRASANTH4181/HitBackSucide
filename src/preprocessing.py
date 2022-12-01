@@ -16,6 +16,7 @@ class preprocessing:
         '''
         raw_data        : The data that is being uploaded through the portal
         '''
+        print('1111111111111111111111111')
         self._raw_data = raw_data
 
     def remove_URL(self,headline_text):
@@ -73,11 +74,12 @@ class preprocessing:
         
         return headline_text.translate(table)
 
-    def text_preprocessing(self,raw_data):
+    def text_preprocessing(self):
         '''
         raw_data        : the data after pucntuation removal
         return          : the cleaned data after preprocessing the raw data by removing the url,html,emojis and punctuations
         '''
+        raw_data= self._raw_data
         raw_data['content']=raw_data['content'].apply(self.remove_URL)
         raw_data['content']=raw_data['content'].apply(self.remove_html)
         raw_data['content']=raw_data['content'].apply(self.remove_emojis)
