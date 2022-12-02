@@ -82,6 +82,7 @@ workflows:
   sample:
     jobs:
       - build_and_test
+      - build-and-test-workflow
       #- build-and-test-python-requirements
       #- build-and-test-python-test-cases
       - build-and-test-angular
