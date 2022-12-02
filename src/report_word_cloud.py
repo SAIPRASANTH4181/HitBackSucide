@@ -35,7 +35,7 @@ class report_word_cloud:
 
         # Display the generated image:
         plt.imshow(wordcloud, interpolation='bilinear')
-        plt.savefig("myImage.png", format="png", dpi=1200)
+        # plt.savefig("myImage.png", format="png", dpi=1200)
         # plt.figure(figsize=(5, 5))
         plt.axis("off")
         plt.show()

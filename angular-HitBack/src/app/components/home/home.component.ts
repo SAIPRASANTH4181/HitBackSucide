@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
     this.fileUploadService.upload(this.file)
     .subscribe((event: any) => {
         console.log(event)
+        console.log(event.status)
         this.Barchart(event);
         this.resetFile();
         switch(event.type){
