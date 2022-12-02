@@ -4,6 +4,8 @@
         <input type="file" (change)="ReadExcel($event)">
     </div>
 </ng-container> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="card" style="width: 31rem;border-width: 10px;border-color: aqua; margin-bottom: 4%;">
     <div class="card-body">
         <div class="progress form-group" *ngIf="progress > 0">
@@ -11,14 +13,21 @@
             </div>
         </div>
         <div class="form-group">
-          <input type="file" name="fileUpload" (change)="onFileChange($event)" #myInput/>
-          <button (click)="uploadFile()" color="primary" class="upload-btn" [disabled] = "!fileIsUploaded()"> Upload File</button>
+            <input type="file" name="fileUpload" (change)="onFileChange($event)" #myInput />
+            <button (click)="uploadFile()" color="primary" class="upload-btn" [disabled]="!fileIsUploaded()"> Upload
+                File</button>
         </div>
     </div>
 </div>
 
-<img  class="thumbnail-image" src="http://127.0.0.1:5000/get_image" width="800" height="600"
-      onerror="this.src='assets/images/image-placeholder.png';"  alt="..." />
+<img class="thumbnail-image" src="http://127.0.0.1:5000/get_image" width="800" height="600"
+    onerror="this.src='assets/images/image-placeholder.png';" alt="..." />
 
+<footer>
+    <p>Contact us: <br>
+        <i style="font-size:24px" class="fa">&#xf0e0;</i>
+        <a href="hitbacksuicide.com">hitbacksuicide.com</a><br>
 
-     
+        <i style="font-size:24px" class="fa">&#xf095;</i>
+        <a href="phn:+13146575678">(314) 657-5678</a>
+</footer>
