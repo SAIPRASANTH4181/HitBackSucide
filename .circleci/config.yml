@@ -57,7 +57,7 @@ jobs:
           pkg-manager: pip
       - run:
         name: Running the test cases
-        command: pytest -q py_test.py
+        command: python py_test.py
       
   build-and-test-angular:
     working_directory: ~/ng-project
