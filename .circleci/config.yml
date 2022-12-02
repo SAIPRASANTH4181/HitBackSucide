@@ -46,15 +46,15 @@ jobs:
           command: pip install wordcloud 
 
 
-  build-and-test-workflow:
-    executor: python/default
-    steps:
-      - checkout
-      - python/install-packages:
-          pkg-manager: pip
-      - run:
-        name: Running the test cases
-        command: py_test.py
+  # build-and-test-workflow:
+  #   executor: python/default
+  #   steps:
+  #     - checkout
+  #     - python/install-packages:
+  #         pkg-manager: pip
+  #     - run:
+  #       name: Running the test cases
+  #       command: python py_test.py
       
   build-and-test-angular:
     working_directory: ~/ng-project
@@ -79,7 +79,5 @@ workflows:
   sample:
     jobs:
       - build_and_test
-      - build-and-test-workflow
-      #- build-and-test-python-requirements
-      #- build-and-test-python-test-cases
+      # - build-and-test-workflow
       - build-and-test-angular
