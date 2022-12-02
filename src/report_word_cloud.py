@@ -24,6 +24,12 @@ class report_word_cloud:
         : return        : word cloud displaying the aspect results
         '''
         analysed_data=self._analysed_data
+        if cleaned_data=="":
+            raise Exception("In analysis the data was nullified")
+            return print('Reporting exited')
+        else:
+            print('The analysis was successful and sent the data for reporting')
+            pass
         text = " ".join(review for review in analysed_data.aspect_keywords.astype('string')).lower()
         print (f"There are {len(text)} words in the combination of all review.")
 

@@ -165,6 +165,12 @@ class aspect_based_analysis:
         returns         : daframe with the sentiment scores and aspects words 
         '''
         cleaned_data=self._cleaned_data
+        if cleaned_data=="":
+            raise Exception("In preprocessing the data was nullified")
+            return print('Analysis exited')
+        else:
+            print('The preprocessing was successful and sent the data for analysis')
+            pass
         nlp = en_core_web_sm.load()
         # Calling the aspect analyzer function
         xy=self.aspect_based_analysis(cleaned_data)

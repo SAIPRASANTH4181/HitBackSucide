@@ -27,8 +27,11 @@ jobs:
       - python/install-packages:
           pkg-manager: pip
       - run:
-          name: Run tests
+          name: Runnin pytest
           command: pip install pytest
+      - run:
+          name: Runnin unittest
+          command: pip install unittest
       - run:
           name: Run snscrape
           command: pip install snscrape
@@ -46,7 +49,16 @@ jobs:
           command: pip install wordcloud 
 
 
-
+  build-and-test-workflow:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+        name: Running the test cases
+        command: pytest -q py_test.py
+      
   build-and-test-angular:
     working_directory: ~/ng-project
     docker:

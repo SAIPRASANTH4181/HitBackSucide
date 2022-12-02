@@ -80,6 +80,13 @@ class preprocessing:
         return          : the cleaned data after preprocessing the raw data by removing the url,html,emojis and punctuations
         '''
         raw_data= self._raw_data
+        if raw_data=="":
+            raise Exception('Empty data is passed for the preprocessing')
+            return print("Preprocessed exited")
+        else:
+            print('The raw data is not empty')
+            pass
+        
         raw_data['content']=raw_data['content'].apply(self.remove_URL)
         raw_data['content']=raw_data['content'].apply(self.remove_html)
         raw_data['content']=raw_data['content'].apply(self.remove_emojis)
