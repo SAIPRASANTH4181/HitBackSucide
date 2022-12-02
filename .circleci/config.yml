@@ -28,12 +28,25 @@ jobs:
           pkg-manager: pip
       - run:
           name: Run tests
-          command: python -m pytest
-      # - persist_to_workspace:
-      #     root: ~/project
-      #     paths:
-      #       - .
-        
+          command: pip install pytest
+      - run:
+          name: Run snscrape
+          command: pip install snscrape
+      - run:
+          name: Run spacy
+          command: pip install spacy       
+      - run:
+          name: Run vs
+          command: pip install vaderSentiment
+      - run:
+          name: Run flask
+          command: pip install flask       
+      - run:
+          name: Run wc
+          command: pip install wordcloud 
+
+
+
   build-and-test-angular:
     working_directory: ~/ng-project
     docker:
