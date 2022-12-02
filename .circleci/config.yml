@@ -30,9 +30,6 @@ jobs:
           name: Runnin pytest
           command: pip install pytest
       - run:
-          name: Runnin unittest
-          command: pip install unittest
-      - run:
           name: Run snscrape
           command: pip install snscrape
       - run:
