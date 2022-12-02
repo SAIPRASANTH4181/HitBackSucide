@@ -12,6 +12,11 @@ class aspect_analysis:
         self._data=data
 
     def end_end_analysis(self):
+        if _data=="":
+            raise Exception('We have passed null string. There is no data.')
+            return ('Workflow terminated')
+        else:
+            pass
         print('qqqqqqqqqqqqqqqqq')
         print(self._data)
         preprocessed_obj=pre.preprocessing(self._data)

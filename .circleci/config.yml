@@ -1,50 +1,61 @@
 version: 2.1
 orbs:
-  python: circleci/python@2.0.3
+  python: circleci/python@2.1.1
   browser-tools: circleci/browser-tools@1.2.3
+
+
+# jobs:
+  # build-and-test:  
+  #   docker:
+  #     - image: cimg/python:3.10.5
+    
+  #   steps:
+  #     - checkout
+  #     - python/install-packages:
+  #         pkg-manager: pip
+  #         # app-dir: ~/HITBACKSUCIDE  # If you're requirements.txt isn't in the root directory.
+  #         # pip-dependency-file: requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
+  #     - run:
+  #         name: Run tests
+  #         command: pytest
+
 jobs:
-  build-and-test-python-requirements:
-    docker:
-      - image: cimg/python:3.10.4
+  build_and_test: # this can be any name you choose
+    executor: python/default
     steps:
       - checkout
       - python/install-packages:
           pkg-manager: pip
       - run:
-          name: RUN py_test
-          command: pytest
+          name: Runnin pytest
+          command: pip install pytest
       - run:
-          name: RUN SNSCRAPE
-          command: snscrape
+          name: Run snscrape
+          command: pip install snscrape
       - run:
-          name: RUN NPACY
-          command: spacy
+          name: Run spacy
+          command: pip install spacy       
       - run:
-          name: RUN VADER
-          command: vaderSentiment
+          name: Run vs
+          command: pip install vaderSentiment
       - run:
-          name: RUN CURRENT WORKING DIR
-          command: pwd
-  
-  build-and-test-python-test-cases:
-    docker:
-      - image: cimg/python:3.10.4
-    steps:
-      - checkout
-      - python/install-packages:
-          pkg-manager: pip
+          name: Run flask
+          command: pip install flask       
       - run:
-          name: RUN PREPROCESSING
-          command: preprocessing.py
+          name: Run wc
+          command: pip install wordcloud 
+
+
+  # build-and-test-workflow:
+  #   executor: python/default
+  #   steps:
+  #     - checkout
+  #     - python/install-packages:
+  #         pkg-manager: pip
+  #     - run:
+  #       name: Running the test cases
+  #       command: python py_test.py
       
-      - run:
-           name: RUN ASPECT_BASED_ANALYSIS
-           command: aspect_based_analysis.py
-      
-      - run:
-           name: RUN REPORT
-           command: report_word_cloud.py
-        
   build-and-test-angular:
     working_directory: ~/ng-project
     docker:
@@ -67,6 +78,6 @@ jobs:
 workflows:
   sample:
     jobs:
-      - build-and-test-python-requirements
-      - build-and-test-python-test-cases
+      - build_and_test
+      # - build-and-test-workflow
       - build-and-test-angular
