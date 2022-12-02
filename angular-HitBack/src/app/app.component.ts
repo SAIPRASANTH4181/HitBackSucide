@@ -19,7 +19,7 @@ export class AppComponent {
   ) {}
 
   logout() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
     // this.authService.logout().subscribe(() => {
     //   // console.log(this.usersService) 
     //   this.router.navigate(['/']);
