@@ -25,6 +25,7 @@
     "@ngneat/overview": "^2.0.2",
     "@ngneat/until-destroy": "^9.0.0",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.0.1",
     "firebase": "^9.4.0",
     "ngx-bootstrap": "^9.0.0",
     "ngx-toastr": "^15.2.1",

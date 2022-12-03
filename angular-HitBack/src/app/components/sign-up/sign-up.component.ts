@@ -33,6 +33,8 @@ export function passwordsMatchValidator(): ValidatorFn {
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
+
+  // Declare form variables
   signUpForm = this.fb.group(
     {
       name: ['', Validators.required],
@@ -43,6 +45,7 @@ export class SignUpComponent implements OnInit {
     { validators: passwordsMatchValidator() }
   );
 
+  // Passing arguments to constructor
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -52,29 +55,36 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // To get email from form
   get email() {
     return this.signUpForm.get('email');
   }
 
+  // To get password from form
   get password() {
     return this.signUpForm.get('password');
   }
 
+  // To get re-entered assword from form
   get confirmPassword() {
     return this.signUpForm.get('confirmPassword');
   }
 
+  // To get name from form
   get name() {
     return this.signUpForm.get('name');
   }
 
+  // On submit of the form
   submit() {
     const { name, email, password } = this.signUpForm.value;
 
+    // Check whether email or password have value or not
     if (!this.signUpForm.valid || !name || !password || !email) {
       return;
     }
 
+    // Connect to auth service
     this.authService
       .signUp(email, password)
       .pipe(

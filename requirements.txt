@@ -2,3 +2,4 @@ snscrape
 pytest
 spacy
 vaderSentiment
+flask
