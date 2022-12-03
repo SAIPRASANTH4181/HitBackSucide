@@ -9,5 +9,4 @@ The objective of the project is to analyze the suicidal aspect and sentiment sco
 1.	Akhilandeshwari Ramu	: 001237056
 2.	Varsha Reddy Banda		: 001238066
 3.	Nithisha Boya			: 001244828
-4.	Prasanna Kumar Rayapudi	: 001223244
-5.	Sai Prasanth Bodaballa	: 001243337
+4.	Sai Prasanth Bodaballa	: 001243337
