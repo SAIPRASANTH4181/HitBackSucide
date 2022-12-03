@@ -2,7 +2,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit,ViewChild,ElementRef} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
-import { Chart, ChartType } from "chart.js";
+import { Chart } from "chart.js";
 // import { UsersService } from 'src/app/services/users.service';FileUploadService
 import * as XLSX from 'xlsx';
 import { FileUploadService } from 'src/app/services/file-upload.service';
@@ -127,16 +127,13 @@ export class HomeComponent implements OnInit {
         },
         options: {
           scales: {
-            y: {
-              beginAtZero: true
-            }
-            // yAxes: [{
-            //     ticks: {
-            //       beginAtZero: true,
-            //       min : 0,
-            //       max : 100,
-            //     }
-            //   }]
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true
+                }
+              }
+            ]
           }
         }
       });
