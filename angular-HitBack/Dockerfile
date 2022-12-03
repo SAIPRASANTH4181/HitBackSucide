@@ -1,23 +1,8 @@
-#stage 1
-# FROM node:latest as node
-# COPY package.json .
-# WORKDIR /app
-# COPY . .
-# RUN npm install --force
-# RUN npm run build --prod --force
-# #stage 2
-# FROM nginx:alpine
-# COPY --from=node /app/dist/angular-HitBack /usr/share/nginx/html
-
-#stage 1
-FROM node:latest as node
-WORKDIR /app
+FROM node:16.13.0-alpine
+WORKDIR /angular-HitBack/src/app
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
 COPY . .
-RUN npm install --force
-RUN npm run build --prod --force
-#stage 2
-
-FROM nginx:alpine
-COPY --from=node /app/dist/angular-HitBack /usr/share/nginx/html
-
-
+EXPOSE 4200
+CMD /angular-HitBack/src/app/node_modules/.bin/ng serve --host 0.0.0.0
