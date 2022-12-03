@@ -9,8 +9,10 @@ import { concatMap, from, Observable, of, switchMap } from 'rxjs';
 })
 export class AuthService {
   
+  // Passing arguments to constructor
   constructor(private auth: AngularFireAuth) {}
 
+  // Function called when clicks on sign up
   signUp(email: string, password: string) {
     return from(this.auth.createUserWithEmailAndPassword(email, password));
   //   this.auth.createUserWithEmailAndPassword( email, password)
@@ -26,6 +28,7 @@ export class AuthService {
   // });
   }
 
+  // Function called when clicks on login
   login(email: string, password: string) {
     return from(this.auth.signInWithEmailAndPassword(email, password));
   }
@@ -41,6 +44,8 @@ export class AuthService {
   //   );
   // }
 
+
+  // Function called when clicks on logout
   logout(): Observable<any> {
     return from(this.auth.signOut());
   }

@@ -44,7 +44,7 @@ class report_word_cloud:
         # plt.savefig("myImage.png", format="png", dpi=1200)
         # plt.figure(figsize=(5, 5))
         plt.axis("off")
-        plt.show()
+        # plt.show()
         wordcloud =  wordcloud.to_file('N2.png')
 
         filtered_words = [word for word in text.split() if word not in stopwords]
